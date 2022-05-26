@@ -1276,7 +1276,7 @@
 					<div class="row">
 
 						<!-- FORM -->
-						<div class="col-md-8 col-sm-8">
+						<div class="col-md-10 col-sm-8">
 
 							<h3>Drop us a line or just say <strong><em>Hello!</em></strong></h3>
 
@@ -1331,50 +1331,45 @@
 									<input type="hidden" name="action" value="contact_send" />
 
 									<div class="row">
-											<div class="col-md-4">
+											<div class="col-md-3">
 												<label for="contact:name">Full Name *</label>
 												<input required type="text" value="" class="form-control" name="contact[name][required]" id="contact:name">
 											</div>
-											<div class="col-md-4">
+											<div class="col-md-3">
 												<label for="contact:name">Business Name</label>
-												<input required type="text" value="" class="form-control" name="contact[name][required]" id="contact:name">
+												<input type="text" value="" class="form-control" name="contact[bname][required]" id="contact:bname">
 											</div>
-											<div class="col-md-4">
+											<div class="col-md-3">
 												<label for="contact:email">E-mail*</label>
 												<input required type="email" value="" class="form-control" name="contact[email][required]" id="contact:email">
 											</div>
-											<div class="col-md-4">
-												<label for="contact:phone">Phone</label>
-												<input type="text" value="" class="form-control" name="contact[phone]" id="contact:phone">
+											<div class="col-md-3">
+												<label for="contact:phone">Phone *</label>
+												<input required type="int" value="" class="form-control" name="contact[phone]" id="contact:phone">
 											</div>
-											<div class="col-md-4">
-												<label for="contact:name">Project Name</label>
-												<input required type="text" value="" class="form-control" name="contact[name][required]" id="contact:name">
-											</div>
-											<div class="col-md-12">
-												<label for="contact:name">Project Description</label>
-												<input required type="text" value="" class="form-control" name="contact[name][required]" id="contact:name">
-											</div>
-									</div>
-									<div class="row">
 											<div class="col-md-8">
-												<label for="contact:subject">Subject *</label>
-												<input required type="text" value="" class="form-control" name="contact[subject][required]" id="contact:subject">
+											<label for="contact:subject">Project Name</label>
+											<input type="text" value="" class="form-control" name="contact[pname][required]" id="contact:pname">
 											</div>
 											<div class="col-md-4">
 												<label for="contact_department">Department</label>
 												<select class="form-control pointer" name="contact[department]">
 													<option value="">--- Select ---</option>
-													<option value="Marketing">Marketing</option>
-													<option value="Webdesign">Webdesign</option>
-													<option value="Architecture">Architecture</option>
+													<option value="Residential">Residential</option>
+													<option value="Corporate">Corporate</option>
+													<option value="Design">Design</option>
 												</select>
 											</div>
+											<div class="col-md-12">
+												<label for="contact:message">Project Description</label>
+												<textarea maxlength="10000" rows="8" class="form-control" name="contact[pdesc]" id="contact:pdesc"></textarea>
+											</div>
 									</div>
+
 									<div class="row">
 											<div class="col-md-12">
-												<label for="contact:message">Message *</label>
-												<textarea required maxlength="10000" rows="8" class="form-control" name="contact[message]" id="contact:message"></textarea>
+												<label for="contact:message">Message</label>
+												<textarea maxlength="10000" rows="8" class="form-control" name="contact[message]" id="contact:message"></textarea>
 											</div>
 									</div>
 									<div class="row">
@@ -1402,7 +1397,7 @@
 
 
 						<!-- INFO -->
-						<div class="col-md-4 col-sm-4">
+						<div class="col-md-2 col-sm-4">
 
 							<h2>Visit Us</h2>
 
@@ -1425,9 +1420,9 @@
 							<hr />
 
 							<p>
-								<span class="block"><strong><i class="fa fa-map-marker"></i> Address:</strong> Street Name, City Name, Country</span>
-								<span class="block"><strong><i class="fa fa-phone"></i> Phone:</strong> <a href="tel:1800-555-1234">1800-555-1234</a></span>
-								<span class="block"><strong><i class="fa fa-envelope"></i> Email:</strong> <a href="mailto:mail@yourdomain.com">mail@yourdomain.com</a></span>
+								<span class="block"><strong><i class="fa fa-map-marker"></i> Address:</strong>1165 Bd Lebourgneuf, Québec, QC G2K 2C9</span>
+								<span class="block"><strong><i class="fa fa-phone"></i> Phone:</strong> <a href="tel:1800-887-2497">+1 800-887-2497</a></span>
+								<span class="block"><strong><i class="fa fa-envelope"></i> Email:</strong> <a href="info@codeboxx.com">info@codeboxx.com</a></span>
 							</p>
 
 						</div>
