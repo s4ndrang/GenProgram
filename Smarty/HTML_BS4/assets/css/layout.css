@@ -308,7 +308,7 @@ a:hover {
 	text-decoration:none;
 }
 /* logo hover enlarge */
-a.logo:hover {
+a.l:hover {
 	position:relative;
     top:25px;
     left:35px;
@@ -9728,6 +9728,13 @@ section.dark-2 div.category-grid .card {
 	-webkit-box-shadow: 0px 0px 6px 0px rgba(0,0,0,0.75);
 			box-shadow: 0px 0px 6px 0px rgba(0,0,0,0.75);
 }
+.center-horizontal {
+	margin: 0;
+	position: absolute;
+	left: 50%;
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+  }
 
 /* END material section color switch */
 
