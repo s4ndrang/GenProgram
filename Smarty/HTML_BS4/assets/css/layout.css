@@ -307,7 +307,16 @@ a:hover {
 	color: #212121;
 	text-decoration:none;
 }
-
+/* logo hover enlarge */
+a.logo:hover {
+	position:relative;
+    top:25px;
+    left:35px;
+    width:500%;
+    height:auto;
+    display:block;
+    z-index:999;
+}
 
 /* black link color - override theme color link */
 a.href-reset,
