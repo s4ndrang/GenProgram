@@ -15306,5 +15306,9 @@ h1:before,h2:before,h3:before,h4:before,h5:before,h6:before {
 		padding: 30px 10px 50px 10px !important;
 		background-color: rgba(0,0,0,0.01);
 	}
+	.radioform {
+		float:left;
+		padding: 15px;
+	}
 
 }

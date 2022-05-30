@@ -4,9 +4,33 @@
         <meta charset="utf-8"/>
         <title>Quotation</title>
         <link rel="shortcut icon" type="image" href="assets/images/rocket/quote.png"/>
+        <meta name="description" content="" />
+		<meta name="Author" content="Dorin Grigoras [www.stepofweb.com]" />
+
+		<!-- mobile settings -->
+		<meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
+		<!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+
+		<!-- WEB FONTS : use %7C instead of | (pipe) -->
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600%7CRaleway:300,400,500,600,700%7CLato:300,400,400italic,600,700" rel="stylesheet" type="text/css" />
+
+		<!-- CORE CSS -->
+		<link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+		<!-- REVOLUTION SLIDER -->
+		<link href="assets/plugins/slider.revolution/css/extralayers.css" rel="stylesheet" type="text/css" />
+		<link href="assets/plugins/slider.revolution/css/settings.css" rel="stylesheet" type="text/css" />
+
+		<!-- THEME CSS -->
+		<link href="assets/css/essentials.css" rel="stylesheet" type="text/css" />
+		<link href="assets/css/layout.css" rel="stylesheet" type="text/css" />
+
+		<!-- PAGE LEVEL SCRIPTS -->
+		<link href="assets/css/header-1.css" rel="stylesheet" type="text/css" />
+		<link href="assets/css/color_scheme/lightgrey.css" rel="stylesheet" type="text/css" id="color_scheme" />
     </head>
 
-    <body>
+    <body class="smoothscroll enable-animation grain-blue">
         <div id="header" class="navbar-toggleable-md sticky transparent b-0 clearfix">
 
             <!-- TOP NAV -->
@@ -80,6 +104,282 @@
             </header>
         </div>
 
+        <!-- FORM -->
+    let residential;   
+        <!-- Building Type -->
+        <div class="container mt-100" style="border-style:solid">
+            <form action="/action_page.php" method="post" enctype="multipart/form-data">
+                <div id="bdgType">
+                    <p>Please select your building type:</p>
+                    <input type="radio" id="residential" name="building_type" value="Residential" class="radioform">
+                    <label for="residential">Residential    </label>
+                    <input type="radio" id="commercial" name="building_type" value="Commercial" class="radioform">
+                    <label for="commercial">Commercial    </label>
+                    <input type="radio" id="corporate" name="building_type" value="Corporate" class="radioform">
+                    <label for="corporate">Corporate    </label>
+                    <input type="radio" id="hybrid" name="building_type" value="Hybrid" class="radioform">
+                    <label for="hybrid">Hybrid    </label>
+                </div>
+
+                <form id="num">
+                    <input type="number" id="numApartment" name="numApartment">
+                    <label for="numApartment">Number of Apartments :</label><br>
+
+                    <input type="number" id="numUppLevel" name="numUppLevel">
+                    <label for="numUppLevel">Number of Floors (excluding basements) :</label><br>
+
+                    <input type="number" id="numBasement" name="numBasement">
+                    <label for="numBasement">Number of Basement :</label><br>
+
+                    <input type="number" id="numBusiness" name="numBusiness">
+                    <label for="numBusiness">Number of Businesses :</label><br>
+
+                    <input type="number" id="numParking" name="numParking">
+                    <label for="numParking">Number of Parking Spaces :</label><br>
+
+                    <input type="number" id="numCage" name="numCage">
+                    <label for="numCage">Number of Elevator Cages :</label><br>
+
+                    <input type="number" id="numTenant" name="numTenant">
+                    <label for="numTenant">Number of Tenant Companies :</label><br>
+
+                    <input type="number" id="numOccupant" name="numOccupant">
+                    <label for="numOccupant">Number of Occupants per Floor :</label><br>
+
+                    <input type="number" id="numHoursActivity" name="numHoursActivity">
+                    <label for="numHoursActivity">Number of Hours of Activity per Day :</label><br>
+
+                    <input id="submit" type="submit" value="Submit">
+
+                    <script>
+                    if residential.clicked() {
+                        numApartment.show(); numBasement.show(); numUppLevel.show();
+                    }
+                    </script>
+                </form>
+
+                
+                
+                
+        
+
+    function askFor() 
+                
+            </form>
+                <br>
+        <div>
+            
+
+    
+
+                    <div class="row">
+                            <div class="col-md-3">
+                                <label for="contact:name">Full Name *</label>
+                                <input required type="text" value="" class="form-control" name="contact[name][required]" id="contact:name">
+                            </div>
+                            <div class="col-md-3">
+                                <label for="contact:name">Business Name</label>
+                                <input type="text" value="" class="form-control" name="contact[bname][required]" id="contact:bname">
+                            </div>
+                            <div class="col-md-3">
+                                <label for="contact:email">E-mail*</label>
+                                <input required type="email" value="" class="form-control" name="contact[email][required]" id="contact:email">
+                            </div>
+                            <div class="col-md-3">
+                                <label for="contact:phone">Phone *</label>
+                                <input required type="int" value="" class="form-control" name="contact[phone]" id="contact:phone">
+                            </div>
+                            <div class="col-md-8">
+                            <label for="contact:subject">Project Name</label>
+                            <input type="text" value="" class="form-control" name="contact[pname][required]" id="contact:pname">
+                            </div>
+                            <div class="col-md-4">
+                                <label for="contact_department">Department</label>
+                                <select class="form-control pointer" name="contact[department]">
+                                    <option value="">--- Select ---</option>
+                                    <option value="Residential">Residential</option>
+                                    <option value="Corporate">Corporate</option>
+                                    <option value="Design">Design</option>
+                                </select>
+                            </div>
+                            <div class="col-md-12">
+                                <label for="contact:message">Project Description</label>
+                                <textarea maxlength="10000" rows="8" class="form-control" name="contact[pdesc]" id="contact:pdesc"></textarea>
+                            </div>
+                    </div>
+
+                    <div class="row">
+                            <div class="col-md-12">
+                                <label for="contact:message">Message</label>
+                                <textarea maxlength="10000" rows="8" class="form-control" name="contact[message]" id="contact:message"></textarea>
+                            </div>
+                    </div>
+                    <div class="row">
+                            <div class="col-md-12">
+                                <label for="contact:attachment">File Attachment</label>
+
+                                <!-- custom file upload -->
+                                <input class="custom-file-upload" type="file" id="file" name="contact[attachment]" id="contact:attachment" data-btn-text="Select a File" />
+                                <small class="text-muted block">Max file size: 10Mb (zip/pdf/jpg/png)</small>
+
+                            </div>
+                    </div>
+
+                </fieldset>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-primary"><i class="fa fa-check"></i> SEND MESSAGE</button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+        <!-- /FORM -->
+
+
+        <!-- INFO -->
+        <div class="col-md-2 col-sm-4">
+
+            <h2>Visit Us</h2>
+
+            <!-- 
+            Available heights
+                h-100
+                h-150
+                h-200
+                h-250
+                h-300
+                h-350
+                h-400
+                h-450
+                h-500
+                h-550
+                h-600
+            -->
+            <div id="map2" class="h-0 grayscale">
+                <p><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2729.407689664882!2d-71.29402718442064!3d46.83566374890628!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cb897e960cb92d3%3A0xd1f81b6230e26c75!2s1165%20Bd%20Lebourgneuf%2C%20Qu%C3%A9bec%2C%20QC%20G2K%202C9!5e0!3m2!1sen!2sca!4v1653659516026!5m2!1sen!2sca" width="150" height="150" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></p>
+            </div>
+
+            <hr />
+
+            <p>
+                <span class="block"><strong><i class="fa fa-map-marker"></i> Address:<br></strong>1165<br>Bd Lebourgneuf,<br>Québec, Canada<br>G2K 2C9<br></span>
+                <span class="block"><strong><i class="fa fa-phone"></i> Phone:<br></strong> <a href="tel:1800-887-2497">+1 800-887-2497</a></span>
+                <span class="block"><strong><i class="fa fa-envelope"></i> Email:<br></strong> <a href="info@codeboxx.com">info@codeboxx.com</a></span>
+            </p>
+
+        </div>
+        <!-- /INFO -->
+
+    </div>
+
+</div>
+</section>
+<!-- /CONTACT -->
+
+
+
+
+<!-- FOOTER -->
+<footer id="footer">
+<div class="container">
+
+
+    <div class="row">
+
+        <!-- col #1 -->
+        <div class="col-md-8">
+
+            <h3 class="letter-spacing-1">WHY US?</h3>
+
+            <!-- Small Description -->
+            <p>
+                Quality and professional products and services. We deliver what you want. And we listen to your needs.
+            </p>
+            <h2><a href="tel:1800-887-2497">+1 800-887-2497</a></h2>
+        </div>
+        <!-- /col #1 -->
+
+        <!-- col #2 -->
+        <div class="col-md-4">
+            <h3 class="letter-spacing-1">KEEP IN TOUCH</h3>
+
+            <!-- Newsletter Form -->
+            <p>Subscribe to Our Newsletter to get Important News & Offers</p>
+
+            <form class="validate" action="php/newsletter.php" method="post" data-success="Subscribed! Thank you!" data-toastr-position="bottom-right">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                    <input type="email" id="email" name="email" class="form-control required" placeholder="Enter your Email">
+                    <span class="input-group-btn">
+                        <button class="btn btn-success" type="submit">Subscribe</button>
+                    </span>
+                </div>
+            </form>
+
+
+
+            <!-- FOOTER -->
+			<footer id="footer">
+				<div class="container">
+
+
+					<div class="row">
+
+						<!-- col #1 -->
+						<div class="col-md-8">
+
+							<h3 class="letter-spacing-1">WHY US?</h3>
+
+							<!-- Small Description -->
+							<p>
+								Quality and professional products and services. We deliver what you want. And we listen to your needs.
+							</p>
+							<h2><a href="tel:1800-887-2497">+1 800-887-2497</a></h2>
+						</div>
+						<!-- /col #1 -->
+
+						<!-- col #2 -->
+						<div class="col-md-4">
+							<h3 class="letter-spacing-1">KEEP IN TOUCH</h3>
+
+							<!-- Newsletter Form -->
+							<p>Subscribe to Our Newsletter to get Important News & Offers</p>
+
+							<form class="validate" action="php/newsletter.php" method="post" data-success="Subscribed! Thank you!" data-toastr-position="bottom-right">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+									<input type="email" id="email" name="email" class="form-control required" placeholder="Enter your Email">
+									<span class="input-group-btn">
+										<button class="btn btn-success" type="submit">Subscribe</button>
+									</span>
+								</div>
+							</form>
+							<!-- /Newsletter Form -->
+
+
+						</div>
+						<!-- /col #2 -->
+
+					</div>
+
+
+				</div>
+
+				<div class="copyright">
+					<div class="container">
+						<ul class="float-right m-0 list-inline mobile-block">
+							<li><a href="#">Terms &amp; Conditions</a></li>
+							<li>&bull;</li>
+							<li><a href="#">Privacy</a></li>
+						</ul>
+						&copy; All Rights Reserved, Rocket Elevators LTD
+					</div>
+				</div>
+
+			</footer>
+			<!-- /FOOTER -->
     </body>
 
 </html>
