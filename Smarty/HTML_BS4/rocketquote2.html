@@ -57,7 +57,7 @@
                     <label for="numUppLevel">Number of Floors (excluding basements) :</label>
                     <input type="number" id="numUppLevel" class="all res comm corp hyb" min="1" name="numUppLevel"><br>
                     
-                    <label for="numBasement">Number of Basement :</label>
+                    <label for="numBasement">Number of Basements :</label>
                     <input type="number" id="numBasement" class="all res comm corp hyb" min="0" name="numBasement"><br>
                     
                     <label for="numBusiness">Number of Businesses :</label>
@@ -108,24 +108,31 @@
                         </select>
                     
                         <br>
-    <!--1. Number of Elevators (Read-Only)-->
-                    <p id="numberOfElev">Number of Elevators: </p>
     <!--Radio Buttons-->
-                    <input type="radio" id="standard" class="pricePkg" name="pdtline" value=7565>
+                    <input type="radio" id="standard" name="pdtline" value="Standard">
                     <label for="standard">Standard: </label>
 
-                    <input type="radio" id="premium" class="pricePkg" name="pdtline" value=12345>
+                    <input type="radio" id="premium" name="pdtline" value="Premium">
                     <label for="premium">Premium: </label>
 
-                    <input type="radio" id="excelium" class="pricePkg" name="pdtline" value=15400>
+                    <input type="radio" id="excelium" name="pdtline" value="Excelium">
                     <label for="excelium">Excelium: </label>
-    <!--2. Unit Price (Read-Only)-->
-                    <p id="displayUnitPrice">Elevator Unit Price: $</p>
-    <!--3. Price of Elevators (Read-Only)-->
-                    <p id="displayElevPrice">Price of Elevators: $</p>
-    <!--4. Installation Fees (Read-Only)-->
 
+    <!--1. Number of Elevators (Read-Only)-->
+    <label for="numOfElev">Number of Elevators: </label>
+    <input type="number" id="numOfElev" readonly><br>
+    <!--2. Unit Price (Read-Only)-->
+    <label for="unitPrice">Unit Price of Elevator: </label>
+    <input type="number" id="unitPrice" readonly><br>
+    <!--3. Price of Elevators (Read-Only)-->
+    <label for="totalPrice">Total Price of Elevators: </label>
+    <input type="number" id="totalPrice" readonly><br>
+    <!--4. Installation Fees (Read-Only)-->
+    <label for="installFee">Installation Fees: </label>
+    <input type="number" id="installFee" readonly><br>
     <!--5. Total Price (Read-Only)-->
+    <label for="finalPrice">Final Price: </label>
+    <input type="number" id="finalPrice" readonly><br>
                 </form>  
             </div>
             <form>

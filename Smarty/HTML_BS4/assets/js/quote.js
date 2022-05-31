@@ -4,9 +4,10 @@ $(document).ready(function() {
     // Building type event listener
     $("#bdgType").change(function() {
         $(".all").hide();
-        let bType = $("#bdgType").find(":selected").text();
+        let bType = $("#bdgType").find(':selected').text();
         if (bType == "Residential") {
             $(".res").show();
+            calculRes();
         } else if (bType == "Commercial") {
             $(".comm").show();
         } else if (bType == "Corporate") {
@@ -16,78 +17,42 @@ $(document).ready(function() {
         }
     });
 
-// 1. Number of Elevators
-
-    var numElevComm, numElevRes, numElevCorp, numElevHyb;
-    
+    // function
     function calculRes() {
-        Math.floor(numApartment / numUppLevel / 6)*Math.floor(numUppLevel / 20);
+        let productType = $("input[name='pdtline']:checked").val();
+        let unitPrice;
+        let installationFeesMultiplier;
+        if(productType == "Standard") {
+            unitPrice = 7565;
+            installationFeesMultiplier = 0.1;
+        } else if(productType == "Premium") {
+            unitPrice = 12345;
+            installationFeesMultiplier = 0.13;
+        } else if(productType == "Excelium") {
+            unitPrice = 15400;
+            installationFeesMultiplier = 0.16;
+        }
     }
+        // do calculations 
+        let numApartment = $("#numApartment").val();
+        let numUppLevel = $("#numUppLevel").val();
 
-    function calculCorpHyb() {
-        let numElev = Math.floor(numOccupant*(numUppLevel + numBasement)/1000);
-        let numColumn = Math.floor(numUppLevel + numBasement)/20;
-        let numElevPerColumn = Math.floor(numElev / numColumn);
-        let numElevCorpHyb = numElevPerColumn*numColumn;
+        let numElevNeeded = Math.ceil(numApartment/numUppLevel/6)*Math.ceil(numUppLevel/20);
+        let totalElevPrice = unitPrice*numElevNeeded;
+        let installFee = installationFeesMultiplier*totalElevPrice;
+        let finalPrice = totalElevPrice + installFee;
 
-        $("#final-price").val()
-    }
-
-    numElevCorp = numElevHyb = numElevCorpHyb;
- 
-        if (bType == "Residential") {
-            numElevRes.calculRes();
-        } else if (bType == "Commercial") {
-            numElevComm = numCage;
-        } else if (bType == "Corporate") {
-            numElevCorp.calculCorpHyb();
-        } else if (bType == "Hybrid") {
-            numElevHyb.calculCorpHyb();
-        }    
-    alert(numElevRes);
-    alert(numElevComm);
-    alert(numElevCorp);
-    alert(numElevHyb);
-
-    document.getElementById("numberOfElev").innerHTML = numElevRes;
-    document.getElementById("numberOfElev").innerHTML = numElevComm;
-    document.getElementById("numberOfElev").innerHTML = numElevCorp;
-    document.getElementById("numberOfElev").innerHTML = numElevHyb;
-
-// 2. Elevator Unit Price
-    let packageName = [standard, premium, excelium];
-    let packageUnitPrice = [7565, 12345, 15400];
-    document.getElementById("displayArrPairs").innerHTML = (packageName, packageUnitPrice)
-    $(".pricePkg").select();
-    let unitPrice = this.value;
-    document.getElementById("displayUnitPrice") = unitPrice;
-
-    let check = $(".pdtline");
-    //console.log(check);
-
-    let text = "IS THIS WORKING";
-    document.getElementById("standard").innerHTML = text;
-    console.log(text)
-
-// 3. Price of Elevators
-    let priceElev = unitPrice*numOfElev;
-    document.getElementById("displayElevPrice") = priceElev;
-
-// 4. Installation Fees
-    let installFee = unitPrice*installFee;
-    if (".pricePkg" == "standard") {
-        document.getElementById("stdUnitPrice").innerHTML = "$7565";
-    }
-    else if (".pricePkg" == "premium") {
-        document.getElementById("prem}UnitPrice").innerHTML = "$12345";
-    }
-    else if (chosenPkg == "excelium") {
-        document.getElementById("excUnitPrice").innerHTML = "$15400";
-    }
-
+        // show results
+        $("#numOfElev").val(numElevNeeded);
+        $("#unitPrice").val(unitPrice);
+        $("#totalPrice").val(totalElevPrice);
+        $("#installFee").val(installFee);
+        $("#finalPrice").val(finalPrice);
+    })
 })
-
-
-
-
-// 5. Total Price
+ /*   function calculCorpHyb() {
+        var numElev = Math.ceil(numOccupant*(numUppLevel + numBasement)/1000);
+        var numColumn = Math.ceil(numUppLevel + numBasement)/20;
+        var numElevPerColumn = Math.ceil(numElev / numColumn);
+        var numElevCorpHyb = numElevPerColumn*numColumn;
+    }
