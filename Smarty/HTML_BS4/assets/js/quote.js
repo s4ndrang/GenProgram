@@ -1,8 +1,10 @@
 // 0. Building Type
 $(document).ready(function() { 
-    $(".all").hide();      
+    $(".all").hide();
+    // Building type event listener
     $("#bdgType").change(function() {
-        let bType = $("#bdgType").value;
+        $(".all").hide();
+        let bType = $("#bdgType").find(":selected").text();
         if (bType == "Residential") {
             $(".res").show();
         } else if (bType == "Commercial") {
@@ -26,7 +28,9 @@ $(document).ready(function() {
         let numElev = Math.floor(numOccupant*(numUppLevel + numBasement)/1000);
         let numColumn = Math.floor(numUppLevel + numBasement)/20;
         let numElevPerColumn = Math.floor(numElev / numColumn);
-        numElevCorpHyb = numElevPerColumn*numColumn;
+        let numElevCorpHyb = numElevPerColumn*numColumn;
+
+        $("#final-price").val()
     }
 
     numElevCorp = numElevHyb = numElevCorpHyb;
@@ -44,7 +48,7 @@ $(document).ready(function() {
     alert(numElevComm);
     alert(numElevCorp);
     alert(numElevHyb);
-    
+
     document.getElementById("numberOfElev").innerHTML = numElevRes;
     document.getElementById("numberOfElev").innerHTML = numElevComm;
     document.getElementById("numberOfElev").innerHTML = numElevCorp;
@@ -58,6 +62,13 @@ $(document).ready(function() {
     let unitPrice = this.value;
     document.getElementById("displayUnitPrice") = unitPrice;
 
+    let check = $(".pdtline");
+    //console.log(check);
+
+    let text = "IS THIS WORKING";
+    document.getElementById("standard").innerHTML = text;
+    console.log(text)
+
 // 3. Price of Elevators
     let priceElev = unitPrice*numOfElev;
     document.getElementById("displayElevPrice") = priceElev;
@@ -70,7 +81,7 @@ $(document).ready(function() {
     else if (".pricePkg" == "premium") {
         document.getElementById("prem}UnitPrice").innerHTML = "$12345";
     }
-    else (chosenPkg == "excelium") {
+    else if (chosenPkg == "excelium") {
         document.getElementById("excUnitPrice").innerHTML = "$15400";
     }
 
