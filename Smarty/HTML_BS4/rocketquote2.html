@@ -51,71 +51,63 @@
     
                     <br>
                 
-                    <label for="numApartment">Number of Apartments :</label>
-                    <input type="number" id="numApartment" class="all res" min="1" name="numApartment" required><br>
-                    
-                    <label for="numUppLevel">Number of Floors (excluding basements) :</label>
-                    <input type="number" id="numUppLevel" class="all res comm corp hyb" min="1" name="numUppLevel" required><br>
-                    
-                    <label for="numBasement">Number of Basements :</label>
-                    <input type="number" id="numBasement" class="all res comm corp hyb" min="1" name="numBasement" required><br>
-                    
-                    <label for="numBusiness">Number of Businesses :</label>
-                    <input type="number" id="numBusiness" class="all comm hyb" min="1" name="numBusiness"><br>
-                    
-                    <label for="numParking">Number of Parking Spaces :</label>
-                    <input type="number" id="numParking" class="all comm corp hyb" min="1" name="numParking"><br>
-                    
-                    <label for="numCage">Number of Elevator Cages :</label>
-                    <input type="number" id="numCage" class="all comm" min="1" name="numCage" required><br>
-                    
-                    <label for="numTenant">Number of Tenant Companies :</label>
-                    <input type="number" id="numTenant" class="all corp" min="1" name="numTenant"><br>
-                    
-                    <label for="numOccupant">Number of Occupants per Floor :</label>
-                    <input type="number" id="numOccupant" class="all corp hyb" min="1" name="numOccupant" required><br>
-                    
-                    <br>
-                    
-                    <label for="numHoursActivity">Number of Hours of Activity per Day :</label>
-                    <select name="numHoursActivity" id="numHoursActivity" class="all hyb">
-                        <option hidden>Number of hours</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
-                        <option value="13">13</option>
-                        <option value="14">14</option>
-                        <option value="15">15</option>
-                        <option value="16">16</option>
-                        <option value="17">17</option>
-                        <option value="18">18</option>
-                        <option value="19">19</option>
-                        <option value="20">20</option>
-                        <option value="21">21</option>
-                        <option value="22">22</option>
-                        <option value="23">23</option>
-                        <option value="24">24</option>
-                        </select>
-                    
+                    <div class="all res">
+                        <label for="numApartment">Number of Apartments :</label>
+                        <input type="number" class="quote-input" id="numApartment" min="1" name="numApartment" required><br>
+                    </div>
+
+                    <div class="all res comm corp hyb">
+                        <label for="numUppLevel">Number of Floors (excluding basements) :</label>
+                        <input type="number" id="numUppLevel" class="quote-input" min="1" name="numUppLevel" required><br>
+                    </div>
+
+                    <div class="all res comm corp hyb">
+                        <label for="numBasement">Number of Basements :</label>
+                        <input type="number" id="numBasement" class="quote-input" min="1" name="numBasement" required><br>
+                    </div>
+
+                    <div class="all comm hyb">
+                        <label for="numBusiness">Number of Businesses :</label>
+                        <input type="number" id="numBusiness" class="quote-input" min="1" name="numBusiness"><br>
+                    </div>
+                    <div class="all comm corp hyb">
+                        <label for="numParking">Number of Parking Spaces :</label>
+                        <input type="number" id="numParking" class="quote-input" min="1" name="numParking"><br>
+                    </div>
+
+                    <div class="all comm">
+                        <label for="numCage">Number of Elevator Cages :</label>
+                        <input type="number" id="numCage" class="quote-input" min="1" name="numCage" required><br>
+                    </div>
+
+                    <div class="all corp">
+                        <label for="numTenant">Number of Tenant Companies :</label>
+                        <input type="number" id="numTenant" class="quote-input" min="1" name="numTenant"><br>
+                    </div>
+
+                    <div class="all corp hyb">
+                        <label for="numOccupant">Number of Occupants per Floor :</label>
+                        <input type="number" id="numOccupant" class="quote-input" min="1" name="numOccupant" required><br>
+                    </div>
+
+                    <div class="all hyb">
+                        <label for="numHoursActivity">Number of Hours of Activity per Day :</label>
+                        <input type="number" id="numHoursActivity" class="quote-input" min="1" name="numHoursActivity" required><br>
+                    </div>
                         <br>
     <!--Radio Buttons-->
-                    <input type="radio" id="standard" name="pdtline" value="Standard">
-                    <label for="standard">Standard: </label>
-
-                    <input type="radio" id="premium" name="pdtline" value="Premium">
-                    <label for="premium">Premium: </label>
-
-                    <input type="radio" id="excelium" name="pdtline" value="Excelium">
-                    <label for="excelium">Excelium: </label>
+                    <div>
+                        <input type="radio" id="standard" class="quote-input" name="pdtline" value="Standard">
+                        <label for="standard">Standard: </label>
+                    </div>
+                    <div>
+                        <input type="radio" id="premium" class="quote-input" name="pdtline" value="Premium">
+                        <label for="premium">Premium: </label>
+                    </div>
+                    <div>
+                        <input type="radio" id="excelium" class="quote-input" name="pdtline" value="Excelium">
+                        <label for="excelium">Excelium: </label>
+                    </div>
 
     <!--1. Number of Elevators (Read-Only)-->
     <label for="numOfElev">Number of Elevators: </label>

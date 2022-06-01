@@ -4,28 +4,39 @@ $(document).ready(function() {
     // Building type event listener
     $("#bdgType").change(function() {
         $(".all").hide();
-        let bType = $("#bdgType").find(':selected').text();
-        if (bType == "Residential") {
-            $(".res").show();
-            calculRes();
-        } else if (bType == "Commercial") {
-            $(".comm").show();
-            calculComm();
-        } else if (bType == "Corporate") {
-            $(".corp").show();
-            calculCorpHyb();
-        } else if (bType == "Hybrid") {
-            $(".hyb").show();
-            calculCorpHyb();
-        }
+        refreshFields();
     });
-// RESIDENTIAL
-    // function
-        let productType = $("input[name='pdtline']:checked").val();
-        let unitPrice;
-        let installationFeesMultiplier;
+    
+    $(".quote-input").on("input", function() {
+        refreshFields();
+    })
 
+})
+
+function refreshFields() {
+    let bType = $("#bdgType").find(':selected').text();
+    if (bType == "Residential") {
+        $(".res").show();
+        calculRes();
+    } else if (bType == "Commercial") {
+        $(".comm").show();
+        calculComm();
+    } else if (bType == "Corporate") {
+        $(".corp").show();
+        calculCorp();
+    } else if (bType == "Hybrid") {
+        $(".hyb").show();
+        calculCorp();
+    }
+}
+
+// RESIDENTIAL
+       
             function calculRes() {
+                let productType = $("input[name='pdtline']:checked").val();
+                let unitPrice;
+                let installationFeesMultiplier;
+
                 if (productType == "Standard") {
                     unitPrice = 7565;
                     installationFeesMultiplier = 0.1;
@@ -41,7 +52,11 @@ $(document).ready(function() {
                 let numApartment = parseInt($("#numApartment").val());
                 let numUppLevel = parseInt($("#numUppLevel").val());
 
-                let numElevNeeded = Math.ceil(numApartment/numUppLevel/6)*Math.ceil(numUppLevel/20);
+                let avgApartmentsPerFloor = numApartment / numUppLevel;
+                let numElevRes = Math.ceil(avgApartmentsPerFloor / 6);
+                let numColumnRes = Math.ceil(numUppLevel/20);
+                let numElevNeeded = numElevRes * numColumnRes;
+
                 let totalElevPrice = unitPrice*numElevNeeded;
                 let installFee = installationFeesMultiplier*totalElevPrice;
                 let finalPrice = totalElevPrice + installFee;
@@ -53,9 +68,11 @@ $(document).ready(function() {
                 $("#installFee").val(installFee);
                 $("#finalPrice").val(finalPrice);
             }
-            // COMMERCIAL
+// COMMERCIAL
             function calculComm() {
-                
+                let productType = $("input[name='pdtline']:checked").val();
+                let unitPrice;
+                let installationFeesMultiplier;
                 if (productType == "Standard") {
                     unitPrice = 7565;
                     installationFeesMultiplier = 0.1;
@@ -68,11 +85,11 @@ $(document).ready(function() {
                 }
             
                 // do calculations 
-                let numCage = $("#numCage").val();
-                    parseInt(numCage);
+                var numCage1 = $("#numCage").val();
+                    numCage1 = parseInt(numCage1);
+                numElevNeeded = numCage1;
                 
-                numElevNeeded = numCage;
-                totalElevPrice = unitPrice*numElevNeeded;
+                totalElevPrice = unitPrice*numCage1;
                 installFee = installationFeesMultiplier*totalElevPrice;
                 finalPrice = totalElevPrice + installFee;
             
@@ -83,9 +100,11 @@ $(document).ready(function() {
                 $("#installFee").val(installFee);
                 $("#finalPrice").val(finalPrice);
             }
-            // CORPORATE
-            function calculCorpHyb() {
-                
+// CORPORATE
+            function calculCorp() {
+                let productType = $("input[name='pdtline']:checked").val();
+                let unitPrice;
+                let installationFeesMultiplier;
                 if (productType == "Standard") {
                     unitPrice = 7565;
                     installationFeesMultiplier = 0.1;
@@ -98,15 +117,14 @@ $(document).ready(function() {
                 }
             
                 // do calculations 
-                let numOccupant = $("#numOccupant").val();
-                    parseInt(numOccupant);
-                let numUppLevel = $("#numUppLevel").val();
-                    parseInt(numUppLevel);
-                let numBasement = $("#numBasement").val();
-                    parseInt(numBasement);
+                let numOccupant = parseInt($("#numOccupant").val());    
+                let numUppLevel = parseInt($("#numUppLevel").val()); 
+                let numBasement = parseInt($("#numBasement").val());  
 
-                let numElev = Math.ceil[numOccupant*(numUppLevel + numBasement)/1000];
-                let numColumn = Math.ceil[(numUppLevel + numBasement)/20];
+                let totalNumFloors = numUppLevel + numBasement;
+                let totalNumOccup = numOccupant*totalNumFloors;
+                let numElev = Math.ceil(totalNumOccup/1000);
+                let numColumn = Math.ceil(totalNumFloors/20);
                 let numElevPerColumn = Math.ceil(numElev / numColumn);
                 numElevNeeded = numElevPerColumn * numColumn;
                 totalElevPrice = unitPrice*numElevNeeded;
@@ -120,4 +138,3 @@ $(document).ready(function() {
                 $("#installFee").val(installFee);
                 $("#finalPrice").val(finalPrice);
             }
-})
