@@ -41,7 +41,7 @@
                 <form action="/action_page.php" method="post" enctype="multipart/form-data">
 
                     <label for="bdgType">Please select your Building Type:</label>
-                    <select name="bdgType" id="bdgType">
+                    <select name="bdgType" id="bdgType" required>
                         <option hidden>Select Building Type</option>
                         <option value="Residential" id="res">Residential</option>
                         <option value="Commercial" id="comm">Commercial</option>
@@ -52,35 +52,34 @@
                     <br>
                 
                     <label for="numApartment">Number of Apartments :</label>
-                    <input type="number" id="numApartment" class="all res" min="1" name="numApartment"><br>
+                    <input type="number" id="numApartment" class="all res" min="1" name="numApartment" required><br>
                     
                     <label for="numUppLevel">Number of Floors (excluding basements) :</label>
-                    <input type="number" id="numUppLevel" class="all res comm corp hyb" min="1" name="numUppLevel"><br>
+                    <input type="number" id="numUppLevel" class="all res comm corp hyb" min="1" name="numUppLevel" required><br>
                     
                     <label for="numBasement">Number of Basements :</label>
-                    <input type="number" id="numBasement" class="all res comm corp hyb" min="0" name="numBasement"><br>
+                    <input type="number" id="numBasement" class="all res comm corp hyb" min="1" name="numBasement" required><br>
                     
                     <label for="numBusiness">Number of Businesses :</label>
-                    <input type="number" id="numBusiness" class="all comm hyb" min="0" name="numBusiness"><br>
+                    <input type="number" id="numBusiness" class="all comm hyb" min="1" name="numBusiness"><br>
                     
                     <label for="numParking">Number of Parking Spaces :</label>
-                    <input type="number" id="numParking" class="all comm corp hyb" min="0" name="numParking"><br>
+                    <input type="number" id="numParking" class="all comm corp hyb" min="1" name="numParking"><br>
                     
                     <label for="numCage">Number of Elevator Cages :</label>
-                    <input type="number" id="numCage" class="all comm" min="1" name="numCage"><br>
+                    <input type="number" id="numCage" class="all comm" min="1" name="numCage" required><br>
                     
                     <label for="numTenant">Number of Tenant Companies :</label>
-                    <input type="number" id="numTenant" class="all corp" min="0" name="numTenant"><br>
+                    <input type="number" id="numTenant" class="all corp" min="1" name="numTenant"><br>
                     
                     <label for="numOccupant">Number of Occupants per Floor :</label>
-                    <input type="number" id="numOccupant" class="all corp hyb" min="1" name="numOccupant"><br>
+                    <input type="number" id="numOccupant" class="all corp hyb" min="1" name="numOccupant" required><br>
                     
                     <br>
                     
                     <label for="numHoursActivity">Number of Hours of Activity per Day :</label>
                     <select name="numHoursActivity" id="numHoursActivity" class="all hyb">
                         <option hidden>Number of hours</option>
-                        <option value="0">0</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
