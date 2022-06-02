@@ -2,7 +2,7 @@
 $(document).ready(function() { 
     $(".all").hide();
     // Building type event listener
-    $("#bdgType").change(function() {
+    $("#building-type").change(function() {
         $(".all").hide();
         refreshFields();
     });
@@ -14,20 +14,28 @@ $(document).ready(function() {
 })
 
 function refreshFields() {
-    let bType = $("#bdgType").find(':selected').text();
-    if (bType == "Residential") {
-        $(".res").show();
+    let bType = $("#building-type").find(':selected').text();
+    if (bType == "residential") {
+        $(".residential").show();
         calculRes();
-    } else if (bType == "Commercial") {
-        $(".comm").show();
+    } else if (bType == "commercial") {
+        $(".commercial").show();
         calculComm();
-    } else if (bType == "Corporate") {
-        $(".corp").show();
+    } else if (bType == "corporate") {
+        $(".corporate").show();
         calculCorp();
-    } else if (bType == "Hybrid") {
-        $(".hyb").show();
+    } else if (bType == "hybrid") {
+        $(".hybrid").show();
         calculCorp();
     }
+}
+
+function displayResults(numElevNeeded, unitPrice, totalElevPrice, installFee, finalPrice) {
+    $("#elevator-amount").val(numElevNeeded);
+    $("#elevator-unit-price").val(Intl.NumberFormat('en-CA', {style: 'currency', currency: 'CAD' }).format(unitPrice));
+    $("#elevator-total-price").val(Intl.NumberFormat('en-CA', {style: 'currency', currency: 'CAD' }).format(totalElevPrice));
+    $("#installation-fees").val(Intl.NumberFormat('en-CA', {style: 'currency', currency: 'CAD' }).format(installFee));
+    $("#final-price").val(Intl.NumberFormat('en-CA', {style: 'currency', currency: 'CAD' }).format(finalPrice));
 }
 
 // RESIDENTIAL
@@ -62,11 +70,7 @@ function refreshFields() {
                 let finalPrice = totalElevPrice + installFee;
             
                 // show results
-                $("#numOfElev").val(numElevNeeded);
-                $("#unitPrice").val(unitPrice);
-                $("#totalPrice").val(totalElevPrice);
-                $("#installFee").val(installFee);
-                $("#finalPrice").val(finalPrice);
+                displayResults(numElevNeeded, unitPrice, totalElevPrice, installFee, finalPrice);
             }
 // COMMERCIAL
             function calculComm() {
@@ -94,11 +98,7 @@ function refreshFields() {
                 finalPrice = totalElevPrice + installFee;
             
                 // show results
-                $("#numOfElev").val(numElevNeeded);
-                $("#unitPrice").val(unitPrice);
-                $("#totalPrice").val(totalElevPrice);
-                $("#installFee").val(installFee);
-                $("#finalPrice").val(finalPrice);
+                displayResults(numElevNeeded, unitPrice, totalElevPrice, installFee, finalPrice);
             }
 // CORPORATE
             function calculCorp() {
@@ -126,15 +126,12 @@ function refreshFields() {
                 let numElev = Math.ceil(totalNumOccup/1000);
                 let numColumn = Math.ceil(totalNumFloors/20);
                 let numElevPerColumn = Math.ceil(numElev / numColumn);
+
                 numElevNeeded = numElevPerColumn * numColumn;
                 totalElevPrice = unitPrice*numElevNeeded;
                 installFee = installationFeesMultiplier*totalElevPrice;
                 finalPrice = totalElevPrice + installFee;
-            
+
                 // show results
-                $("#numOfElev").val(numElevNeeded);
-                $("#unitPrice").val(unitPrice);
-                $("#totalPrice").val(totalElevPrice);
-                $("#installFee").val(installFee);
-                $("#finalPrice").val(finalPrice);
+                displayResults(numElevNeeded, unitPrice, totalElevPrice, installFee, finalPrice);  
             }
